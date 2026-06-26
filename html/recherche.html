@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Trouvez votre voiture</title>
+    <link href="../style/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <link href="../style/style2.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar sticky-top navbar-expand-md bg-body-secondary">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><svg width="43" height="45" viewBox="0 0 43 45" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="22" r="23" fill="#FFC87C" />
+                        <line x1="10" y1="30" x2="10" y2="14" stroke="#458170" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="10.41" y1="14.1085" x2="15.1085" y2="19.59" stroke="#458170" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="15.5528" y1="19.6584" x2="21.6584" y2="7.44721" stroke="#458170" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="22" y1="7" x2="22" y2="37" stroke="#458170" stroke-width="2" stroke-linecap="round" />
+                        <line x1="1" y1="-1" x2="17" y2="-1" transform="matrix(0 -1 -1 0 35 31)" stroke="#458170"
+                            stroke-width="2" stroke-linecap="round" />
+                        <line x1="1" y1="-1" x2="8.21954" y2="-1"
+                            transform="matrix(-0.650791 0.759257 0.759257 0.650791 37 14)" stroke="#458170"
+                            stroke-width="2" stroke-linecap="round" />
+                        <line x1="1" y1="-1" x2="14.6525" y2="-1"
+                            transform="matrix(-0.447214 -0.894427 -0.894427 0.447214 30 21)" stroke="#458170"
+                            stroke-width="2" stroke-linecap="round" />
+                        <line x1="1" y1="-1" x2="31" y2="-1" transform="matrix(0 1 1 0 25 6)" stroke="#458170"
+                            stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    M-Motor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Acheter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="vendre-son-vehicule.html">Vendre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="a-propos.html">À Propos</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Rechercher" id="userInput">
+                        <button class="btn btn-outline-primary" type="submit" onclick="rechercher()">Rechercher</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="recherche container">
+
+        <div class="grilleRecherche">
+
+            <div class="filtres">
+                <div class="filtres-header">
+                    <h3>Filtres</h3>
+                    <hr>
+                </div>
+                <div class="filtres-corps form-group">
+                    <form action="">
+                        <label for="marque">MARQUE</label>
+                        <select name="marque" id="marque" class="form-control">
+                            <option value="Volvo">Volvo</option>
+                            <option value="BMW">BMW</option>
+                            <option value="MG">MG</option>
+                            <option value="Peugeot">Peugeot</option>
+                        </select>
+                        <br>
+                        <label for="modele">MODÈLE</label>
+                        <select name="modele" id="modele" class="form-control">
+                            <option value=""><!--Get from database SELECT MODELE FROM VOITURE WHERE MARQUE =
+                        INPUTUTILISATEUR.MARQUE;-->Voir commentaire</option>
+                        </select>
+                        <br>
+                        <label for="carburant">CARBURANT</label>
+                        <select name="carburant" id="carburant" class="form-control">
+                            <option value="diesel">Diesel</option>
+                            <option value="essence">Essence</option>
+                            <option value="electrique">Electrique</option>
+                            <option value="hybride">Hybride</option>
+                            <option value="hydrogene">Hydrogène</option>
+                        </select>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-row">
+                                <label>PRIX</label>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label for="prixMin">MIN</label>
+                                    <input type="number" name="prixMin" id="prixMin">
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="prixMax">MAX</label>
+                                    <input type="number" name="prixMax" id="prixMax">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <br>
+                        <div class="form-row">
+                            <div class="form-row">
+                                <label>ANNEE</label>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label for="anneeMin">MIN</label>
+                                    <input type="number" name="anneeMin" id="anneeMin">
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label for="anneeMax">MAX</label>
+                                    <input type="number" name="anneeMax" id="anneeMax">
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <label for="nbPortes">NOMBRE DE PORTES</label>
+                        <select name="Nombre de portes" id="nbPortes" class="form-control">
+                            <option value="2/3">2-3</option>
+                            <option value="4/5">4-5</option>
+                        </select>
+                        <br>
+                        <div class="form-group">
+                            <label for="autoManu">BOÎTE DE VITESSE</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type="radio" value="automatique" id="auto" name="autoManu" class="form-check-input">
+                            <label for="auto">Automatique</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" value="manuelle" id="manu" name="autoManu" class="form-check-input">
+                            <label for="manu">Manuelle</label>
+                        </div>
+                        <hr>
+                        <button class="btn-primary" type="submit">Filtrer</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="resultats grid">
+                <div class="row g-0">
+                    <div class="card col-4 me-4">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">MG ZS2</h3>
+                            <h5 class="card-subtitle">15000€</h5>
+                            <img src="../ressources/zs2.jpg" alt="" width="100%">
+                            <p class="card-text my-4">50000 km</p>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                    <div class="card col-4 me-4">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">Titre</h3>
+                            <h5 class="card-subtitle">Sous-titre</h5>
+                            <p class="card-text my-4">Lorem ipsum dolor sit amet?</p>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                    <div class="card col-4 me-4">
+                        <div class="card-body text-center">
+                            <h3 class="card-title">Titre</h3>
+                            <h5 class="card-subtitle mb-4">Sous-titre</h5>
+                            <p class="card-text my-4">Lorem ipsum dolor sit amet?</p>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+    <div class="footer bg-body-secondary fixed-bottom">
+        <nav class="navbar sticky-top navbar-expand-md">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><svg width="43" height="45" viewBox="0 0 43 45" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="22" r="23" fill="#FFC87C" />
+                        <line x1="10" y1="30" x2="10" y2="14" stroke="#458170" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="10.41" y1="14.1085" x2="15.1085" y2="19.59" stroke="#458170" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="15.5528" y1="19.6584" x2="21.6584" y2="7.44721" stroke="#458170" stroke-width="2"
+                            stroke-linecap="round" />
+                        <line x1="22" y1="7" x2="22" y2="37" stroke="#458170" stroke-width="2" stroke-linecap="round" />
+                        <line x1="1" y1="-1" x2="17" y2="-1" transform="matrix(0 -1 -1 0 35 31)" stroke="#458170"
+                            stroke-width="2" stroke-linecap="round" />
+                        <line x1="1" y1="-1" x2="8.21954" y2="-1"
+                            transform="matrix(-0.650791 0.759257 0.759257 0.650791 37 14)" stroke="#458170"
+                            stroke-width="2" stroke-linecap="round" />
+                        <line x1="1" y1="-1" x2="14.6525" y2="-1"
+                            transform="matrix(-0.447214 -0.894427 -0.894427 0.447214 30 21)" stroke="#458170"
+                            stroke-width="2" stroke-linecap="round" />
+                        <line x1="1" y1="-1" x2="31" y2="-1" transform="matrix(0 1 1 0 25 6)" stroke="#458170"
+                            stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    M-Motor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContentFooter" aria-controls="navbarSupportedContentFooter"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContentFooter">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Acheter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="vendre-son-vehicule.html">Vendre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="a-propos.html">À Propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cgu.html">CGU</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="mentions-legales.html">Mentions légales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#/login-admin">Espace administrateur</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</html>
